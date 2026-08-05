@@ -202,14 +202,18 @@
       display:flex; align-items:flex-end; justify-content:space-between;
       padding-bottom:2rem; border-bottom:1px solid var(--border);
     }
-    .tab-group { display:flex; }
+    .tab-group {
+      display:flex; gap:.3rem; background:var(--paper-dark);
+      border:1px solid var(--border); border-radius:999px; padding:.3rem;
+    }
     .tab-btn {
-      padding:.6rem 1.6rem; margin-left:-1px; position:relative;
-      font-family:'Barlow Condensed',sans-serif; font-size:.75rem; letter-spacing:.18em; text-transform:uppercase;
-      background:transparent; border:1px solid var(--border); color:var(--muted);
+      padding:.75rem 1.9rem; position:relative; border-radius:999px;
+      font-family:'Barlow Condensed',sans-serif; font-size:.85rem; font-weight:600; letter-spacing:.1em; text-transform:uppercase;
+      background:transparent; border:none; color:var(--muted);
       cursor:pointer; transition:all .2s;
     }
-    .tab-btn.active, .tab-btn:hover { background:var(--ink); color:var(--paper); border-color:var(--ink); z-index:1; }
+    .tab-btn.active { background:var(--ink); color:var(--paper); }
+    .tab-btn:not(.active):hover { background:rgba(var(--ink-rgb),.14); color:var(--ink); }
 
     .toast-list { display:none; }
     .toast-list.active { display:block; }
@@ -241,6 +245,11 @@
     .coffee-item {
       display:flex; align-items:center; justify-content:space-between; gap:1rem;
       padding:1.5rem 0; border-bottom:1px solid var(--border);
+    }
+    .menu-coming-soon { padding:3.5rem 1rem; text-align:center; grid-column:1/-1; }
+    .mcs-text {
+      font-family:'Barlow Condensed',sans-serif; font-style:italic; font-weight:300;
+      font-size:1.2rem; line-height:1.65; color:var(--ink); max-width:480px; margin:0 auto;
     }
     .c-name { font-family:'Barlow Condensed',sans-serif; font-size:1rem; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:var(--ink); }
     .c-price { font-family:'Barlow Condensed',sans-serif; font-size:.9rem; color:var(--muted); white-space:nowrap; }
@@ -413,45 +422,15 @@
     </div>
 
     <div class="toast-list active" id="tab-toast">
-      <div class="toast-item">
-        <div><div class="item-name">Straight Line</div><div class="item-desc">Toast or fruit toast — served with butter and your choice of jam, Vegemite, or honey</div></div>
-        <div class="item-price">$8</div>
-      </div>
-      <div class="toast-item">
-        <div><div class="item-name">Crossroads Classic</div><div class="item-desc">Smoked ham, Dijon mustard, Gruyère cheese, béchamel</div></div>
-        <div class="item-price">$14</div>
-      </div>
-      <div class="toast-item">
-        <div><div class="item-name">The Detour</div><div class="item-desc">Buttermilk braised chicken, Aleppo chilli, jalapeño, pickled cucumber, scamorza</div></div>
-        <div class="item-price">$15</div>
-      </div>
-      <div class="toast-item">
-        <div><div class="item-name">Backstreet Brisket</div><div class="item-desc">Slow-cooked beef brisket, American cheese, pickles, sauerkraut, mustard and house sauce</div></div>
-        <div class="item-price">$16</div>
-      </div>
-      <div class="toast-item">
-        <div><div class="item-name">The Parallel Original</div><div class="item-desc">Beef Soujuk sausage, cheddar, roasted pepper walnut dip, pickles</div></div>
-        <div class="item-price">$15</div>
-      </div>
-      <div class="toast-item">
-        <div><div class="item-name">Underground Truffle</div><div class="item-desc">Mushroom, caramelised onion, truffle oil, cheddar</div></div>
-        <div class="item-price">$14</div>
+      <div class="menu-coming-soon">
+        <p class="mcs-text">Our toast lineup is still coming together in the kitchen — good things are worth the wait. Full menu dropping very soon.</p>
       </div>
     </div>
 
     <div class="coffee-list" id="tab-coffee">
-      <div class="coffee-item"><span class="c-name">Espresso</span><span class="c-price">$4.00</span></div>
-      <div class="coffee-item"><span class="c-name">Double Espresso</span><span class="c-price">$4.80</span></div>
-      <div class="coffee-item"><span class="c-name">Short Mac</span><span class="c-price">$4.90</span></div>
-      <div class="coffee-item"><span class="c-name">Long Mac</span><span class="c-price">$5.30 / $6.30</span></div>
-      <div class="coffee-item"><span class="c-name">Latte</span><span class="c-price">$4.90 / $5.90</span></div>
-      <div class="coffee-item"><span class="c-name">Flat White</span><span class="c-price">$4.90 / $5.90</span></div>
-      <div class="coffee-item"><span class="c-name">Cappuccino</span><span class="c-price">$4.90 / $5.90</span></div>
-      <div class="coffee-item"><span class="c-name">Long Black</span><span class="c-price">$4.90 / $5.90</span></div>
-      <div class="coffee-item"><span class="c-name">Batch Brew</span><span class="c-price">$4.90 / $5.90</span></div>
-      <div class="coffee-item"><span class="c-name">Mocha</span><span class="c-price">$5.00 / $6.00</span></div>
-      <div class="coffee-item"><span class="c-name">Chai</span><span class="c-price">$5.00 / $6.00</span></div>
-      <div class="coffee-item"><span class="c-name">Cold Brew</span><span class="c-price">$6.50</span></div>
+      <div class="menu-coming-soon">
+        <p class="mcs-text">We're dialling in the perfect brew. Full coffee menu coming soon — first cup's just around the corner.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -565,12 +544,9 @@
   const communityEl = document.getElementById('communityCount');
   if (communityEl) communityEl.textContent = INSTAGRAM_FOLLOWERS;
 
-  // "Toasties" and "Coffees" reflect the actual number of menu items below,
-  // so nobody has to remember to update the number by hand when the menu changes.
-  const toastiesEl = document.getElementById('toastiesCount');
-  const coffeesEl = document.getElementById('coffeesCount');
-  if (toastiesEl) toastiesEl.textContent = document.querySelectorAll('#tab-toast .toast-item').length;
-  if (coffeesEl) coffeesEl.textContent = document.querySelectorAll('#tab-coffee .coffee-item').length;
+  // Toasties/Coffees counts are set by hand in the HTML (see #toastiesCount /
+  // #coffeesCount) since the menu section below is a "coming soon" placeholder
+  // for now — update them once the real menu is in.
 
 </script>
 </body>
