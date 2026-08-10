@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Parallel — Links</title>
+  <meta name="description" content="The Parallel — Coffee & Toast Bar, Perth CBD. Website, Instagram and reviews." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:ital,wght@0,300;0,400;0,600;0,700;1,300&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --paper:          #560618;
+      --paper-dark:     #3D0410;
+      --paper-mid:      #720C22;
+      --paper-mid-rgb:  114,12,34;
+      --ink:            #FFFFFF;
+      --ink-rgb:        255,255,255;
+      --muted:          rgba(var(--ink-rgb),0.82);
+      --border:         rgba(var(--ink-rgb),0.16);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      min-height: 100vh;
+      background: var(--paper);
+      background-image:
+        radial-gradient(ellipse 80% 50% at 50% 0%, rgba(var(--paper-mid-rgb),.7) 0%, transparent 70%);
+      color: var(--ink);
+      font-family: 'Barlow', sans-serif;
+      font-weight: 300;
+      display: flex;
+      justify-content: center;
+      padding: 4.5rem 1.25rem 3rem;
+    }
+    .wrap { width: 100%; max-width: 420px; text-align: center; }
+
+    .badge {
+      display: inline-block;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: .68rem; font-weight: 600; letter-spacing: .24em; text-transform: uppercase;
+      color: var(--ink);
+      background: rgba(var(--ink-rgb),.10);
+      border: 1px solid rgba(var(--ink-rgb),.3);
+      border-radius: 999px;
+      padding: .45rem 1.1rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .wordmark {
+      font-family: 'Anton', sans-serif;
+      font-size: clamp(2.4rem, 11vw, 3.2rem);
+      letter-spacing: .01em;
+      line-height: 1;
+      margin-bottom: .7rem;
+    }
+
+    .tagline {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: .8rem; letter-spacing: .28em; text-transform: uppercase;
+      color: rgba(var(--ink-rgb),.55);
+      margin-bottom: .5rem;
+    }
+
+    .address {
+      font-size: .82rem;
+      color: var(--muted);
+      margin-bottom: 2.6rem;
+    }
+
+    .links { display: flex; flex-direction: column; gap: .85rem; }
+
+    .link-btn {
+      display: flex; align-items: center; justify-content: center; gap: .6rem;
+      padding: 1rem 1.4rem;
+      border: 1px solid rgba(var(--ink-rgb),.35);
+      border-radius: 999px;
+      color: var(--ink);
+      text-decoration: none;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: .92rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
+      transition: border-color .2s, background .2s, transform .15s;
+      background: rgba(var(--ink-rgb),.03);
+    }
+    .link-btn:hover { border-color: var(--ink); background: rgba(var(--ink-rgb),.08); transform: translateY(-1px); }
+
+    .link-btn.primary {
+      background: var(--ink); color: var(--paper); border-color: var(--ink);
+    }
+    .link-btn.primary:hover { opacity: .9; background: var(--ink); }
+
+    .link-btn svg { width: 18px; height: 18px; flex: none; fill: currentColor; }
+
+    footer {
+      margin-top: 3rem;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: .7rem; letter-spacing: .1em; text-transform: uppercase;
+      color: rgba(var(--ink-rgb),.4);
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <span class="badge">Soft Opening</span>
+    <h1 class="wordmark">The Parallel</h1>
+    <p class="tagline">Coffee &nbsp;·&nbsp; Community &nbsp;·&nbsp; Connection</p>
+    <p class="address">143 Barrack St, Perth WA 6000</p>
+
+    <nav class="links">
+      <a class="link-btn primary" href="https://theparallel.com.au" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm7.93 9h-3.05a15.7 15.7 0 0 0-1.1-5.15A8.03 8.03 0 0 1 19.93 11ZM12 4.06c.9 1.2 1.98 3.2 2.25 6.94H9.75c.27-3.74 1.35-5.74 2.25-6.94ZM9.75 13h4.5c-.27 3.74-1.35 5.74-2.25 6.94-.9-1.2-1.98-3.2-2.25-6.94Zm-2.4-7.15A15.7 15.7 0 0 0 6.25 11H4.07a8.03 8.03 0 0 1 3.28-5.15ZM4.07 13h2.18c.16 1.94.55 3.66 1.1 5.15A8.03 8.03 0 0 1 4.07 13Zm11.68 5.15c.55-1.49.94-3.21 1.1-5.15h2.18a8.03 8.03 0 0 1-3.28 5.15Z"/></svg>
+        Website
+      </a>
+      <a class="link-btn" href="https://www.instagram.com/theparallelinperth" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M12 2c2.72 0 3.06.01 4.12.06 1.06.05 1.79.22 2.42.47.66.26 1.21.6 1.76 1.15.5.5.87 1.02 1.15 1.76.25.63.42 1.36.47 2.42.05 1.06.06 1.4.06 4.12s-.01 3.06-.06 4.12c-.05 1.06-.22 1.79-.47 2.42a4.9 4.9 0 0 1-1.15 1.76 4.9 4.9 0 0 1-1.76 1.15c-.63.25-1.36.42-2.42.47-1.06.05-1.4.06-4.12.06s-3.06-.01-4.12-.06c-1.06-.05-1.79-.22-2.42-.47a4.9 4.9 0 0 1-1.76-1.15 4.9 4.9 0 0 1-1.15-1.76c-.25-.63-.42-1.36-.47-2.42C2.01 15.06 2 14.72 2 12s.01-3.06.06-4.12c.05-1.06.22-1.79.47-2.42.26-.66.6-1.21 1.15-1.76a4.9 4.9 0 0 1 1.76-1.15c.63-.25 1.36-.42 2.42-.47C8.94 2.01 9.28 2 12 2Zm0 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10Zm0 8.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4Zm5.2-8.4a1.17 1.17 0 1 1 0-2.34 1.17 1.17 0 0 1 0 2.34Z"/></svg>
+        Instagram
+      </a>
+      <a class="link-btn" href="https://maps.google.com/?q=143+Barrack+St+Perth+WA+6000" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27Z"/></svg>
+        Reviews
+      </a>
+      <a class="link-btn" href="https://maps.google.com/?q=143+Barrack+St+Perth+WA+6000" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M14.06 9.94 4 20h-2v-2L12.06 7.94l2 2ZM17.66 3l-2.83 2.83-2-2L15.66 1 17.66 3Zm-3.54 3.54 2 2L5 19.66V19h-.66L13.12 8.54l1-1Zm4.24-1.29a1 1 0 0 0-1.41 0L15.4 6.7l2 2 1.55-1.55a1 1 0 0 0 0-1.41l-.59-.6Z"/></svg>
+        Write a Review
+      </a>
+    </nav>
+
+    <footer>The Parallel &nbsp;·&nbsp; Perth CBD</footer>
+  </div>
+</body>
+</html>
