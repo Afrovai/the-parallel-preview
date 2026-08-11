@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://theparallel.com.au/sitemap.xml
