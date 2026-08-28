@@ -331,6 +331,16 @@
       font-family:'Barlow Condensed',sans-serif; font-style:italic; font-weight:300;
       font-size:1.2rem; line-height:1.65; color:var(--ink); max-width:480px; margin:0 auto;
     }
+    .menu-group-label {
+      font-family:'Barlow Condensed',sans-serif; font-size:.72rem; font-weight:700;
+      letter-spacing:.2em; text-transform:uppercase; color:rgba(var(--ink-rgb),.55);
+      grid-column:1/-1; padding:1.7rem 0 .3rem;
+    }
+    .menu-group-label:first-child { padding-top:0; }
+    .menu-footnote {
+      grid-column:1/-1; font-family:'Barlow Condensed',sans-serif; font-size:.8rem;
+      font-style:italic; color:rgba(var(--ink-rgb),.62); padding-top:1.3rem; line-height:1.6;
+    }
     .c-name { font-family:'Barlow Condensed',sans-serif; font-size:1rem; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:var(--ink); }
     .c-price { font-family:'Barlow Condensed',sans-serif; font-size:.9rem; color:var(--muted); white-space:nowrap; }
 
@@ -504,15 +514,82 @@
     </div>
 
     <div class="toast-list active" id="tab-toast">
-      <div class="menu-coming-soon">
-        <p class="mcs-text">Our toast lineup is still coming together in the kitchen — good things are worth the wait. Full menu dropping very soon.</p>
+      <div class="toast-item">
+        <div>
+          <div class="item-name">Straight Line <span style="font-size:.55em;opacity:.6;letter-spacing:.05em;">(V, GFO)</span></div>
+          <div class="item-desc">Toast or fruit toast, served with butter and your choice of jam, vegemite or honey.</div>
+        </div>
+        <div class="item-price">$8</div>
       </div>
+      <div class="toast-item">
+        <div>
+          <div class="item-name">Crossroads Classic</div>
+          <div class="item-desc">Smoked leg ham, dijon mustard, gruyère cheese béchamel.</div>
+        </div>
+        <div class="item-price">$14</div>
+      </div>
+      <div class="toast-item">
+        <div>
+          <div class="item-name">The Detour</div>
+          <div class="item-desc">Buttermilk braised chicken, aleppo pepper, jalapeño, pickled cucumber, scamorza, mozzarella, kewpie mayo.</div>
+        </div>
+        <div class="item-price">$16</div>
+      </div>
+      <div class="toast-item">
+        <div>
+          <div class="item-name">Backstreet Brisket</div>
+          <div class="item-desc">Slow cooked beef brisket, American cheese, pickles, sauerkraut, mustard and house sauce.</div>
+        </div>
+        <div class="item-price">$17</div>
+      </div>
+      <div class="toast-item">
+        <div>
+          <div class="item-name">The Parallel Original <span style="font-size:.55em;opacity:.6;letter-spacing:.05em;">(N)</span></div>
+          <div class="item-desc">Beef soujuk sausage, cheddar, roasted pepper–walnut dip, pickles.</div>
+        </div>
+        <div class="item-price">$16</div>
+      </div>
+      <div class="toast-item">
+        <div>
+          <div class="item-name">Underground Truffle <span style="font-size:.55em;opacity:.6;letter-spacing:.05em;">(V, VGO)</span></div>
+          <div class="item-desc">Mushroom, fried shallots, truffle oil, cheddar.</div>
+        </div>
+        <div class="item-price">$15</div>
+      </div>
+
+      <div class="menu-group-label">Make It Yours</div>
+      <div class="coffee-item"><div class="c-name">GF Bread</div><div class="c-price">+$2</div></div>
+      <div class="coffee-item"><div class="c-name">American / Cheddar Cheese</div><div class="c-price">+$4</div></div>
+      <div class="coffee-item"><div class="c-name">Avocado</div><div class="c-price">+$4</div></div>
+      <div class="coffee-item"><div class="c-name">Jalapeños / Pickles</div><div class="c-price">+$2</div></div>
+      <div class="coffee-item"><div class="c-name">Tomato</div><div class="c-price">+$2</div></div>
+
+      <p class="menu-footnote">GF &amp; halal options available — just ask our friendly team. Please note: GF is not suitable for coeliacs, and nuts are handled on site.</p>
     </div>
 
     <div class="coffee-list" id="tab-coffee">
-      <div class="menu-coming-soon">
-        <p class="mcs-text">We're dialling in the perfect brew. Full coffee menu coming soon — first cup's just around the corner.</p>
-      </div>
+      <div class="menu-group-label">Hot &nbsp;<span style="opacity:.6;font-weight:400;">— S 8oz / L 12oz</span></div>
+      <div class="coffee-item"><div class="c-name">Espresso / Double Espresso</div><div class="c-price">$4.0 / $4.5</div></div>
+      <div class="coffee-item"><div class="c-name">Flat White / Latte / Cappuccino</div><div class="c-price">$5.3 / $6.5</div></div>
+      <div class="coffee-item"><div class="c-name">Long Black</div><div class="c-price">$5.3 / $6.0</div></div>
+      <div class="coffee-item"><div class="c-name">Long Macchiato</div><div class="c-price">$5.7 / $6.5</div></div>
+      <div class="coffee-item"><div class="c-name">Hot Chocolate</div><div class="c-price">$5.5 / $6.2</div></div>
+      <div class="coffee-item"><div class="c-name">Chai / Mocha</div><div class="c-price">$6.0 / $6.7</div></div>
+      <div class="coffee-item"><div class="c-name">Matcha</div><div class="c-price">$6.5 / $7.2</div></div>
+      <div class="coffee-item"><div class="c-name">Turkish Coffee</div><div class="c-price">$5.5</div></div>
+      <div class="coffee-item"><div class="c-name">Black / Peppermint / Chamomile Tea</div><div class="c-price">$5.5 / $6.5</div></div>
+
+      <p class="menu-footnote">Alt. milk, extra shot, decaf or syrups +$0.8</p>
+
+      <div class="menu-group-label">Iced &amp; More</div>
+      <div class="coffee-item"><div class="c-name">Iced Latte / Long Black</div><div class="c-price">$6.5</div></div>
+      <div class="coffee-item"><div class="c-name">Iced Chai / Choc / Mocha</div><div class="c-price">$7.0</div></div>
+      <div class="coffee-item"><div class="c-name">Iced Matcha</div><div class="c-price">$7.0</div></div>
+      <div class="coffee-item"><div class="c-name">Iced Strawberry Matcha</div><div class="c-price">$9.0</div></div>
+      <div class="coffee-item"><div class="c-name">Vanilla Cold Foam</div><div class="c-price">+$3</div></div>
+      <div class="coffee-item"><div class="c-name">Coke / Coke Zero</div><div class="c-price">$4.5</div></div>
+      <div class="coffee-item"><div class="c-name">Orange Juice</div><div class="c-price">$7.0</div></div>
+      <div class="coffee-item"><div class="c-name">San Pellegrino</div><div class="c-price">$4.2</div></div>
     </div>
   </div>
 </section>
@@ -627,8 +704,7 @@
   if (communityEl) communityEl.textContent = INSTAGRAM_FOLLOWERS;
 
   // Toasties/Coffees counts are set by hand in the HTML (see #toastiesCount /
-  // #coffeesCount) since the menu section below is a "coming soon" placeholder
-  // for now — update them once the real menu is in.
+  // #coffeesCount) to match the real menu above — update by hand if items change.
 
 </script>
 </body>
