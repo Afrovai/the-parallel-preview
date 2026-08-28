@@ -484,7 +484,7 @@
       <p class="body-copy">Tucked away on a backstreet in Perth CBD, The Parallel is a coffee and toast bar built for the neighbourhood. A place to slow down, connect, and find your daily parallel — great coffee, honest food, good company.</p>
       <div class="pillars">
         <div class="pillar"><div class="p-num" id="toastiesCount">6</div><div class="p-lbl">Toasties</div></div>
-        <div class="pillar"><div class="p-num" id="coffeesCount">8</div><div class="p-lbl">Coffees</div></div>
+        <div class="pillar"><div class="p-num" id="drinksCount">16</div><div class="p-lbl">Drinks</div></div>
         <div class="pillar"><div class="p-num" id="communityCount">1</div><div class="p-lbl">Community</div></div>
       </div>
     </div>
@@ -509,7 +509,7 @@
       </div>
       <div class="tab-group">
         <button class="tab-btn active" onclick="switchTab('toast',this)">Toast</button>
-        <button class="tab-btn" onclick="switchTab('coffee',this)">Coffee</button>
+        <button class="tab-btn" onclick="switchTab('coffee',this)">Drinks</button>
       </div>
     </div>
 
@@ -703,8 +703,10 @@
   const communityEl = document.getElementById('communityCount');
   if (communityEl) communityEl.textContent = INSTAGRAM_FOLLOWERS;
 
-  // Toasties/Coffees counts are set by hand in the HTML (see #toastiesCount /
-  // #coffeesCount) to match the real menu above — update by hand if items change.
+  // Toasties/Drinks counts are set by hand in the HTML (see #toastiesCount /
+  // #drinksCount) to match the real menu above — update by hand if items change.
+  // Toasties = number of toast items; Drinks = number of standalone drink rows
+  // (add-ons like Vanilla Cold Foam are not counted as their own drink).
 
 </script>
 </body>
