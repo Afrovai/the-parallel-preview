@@ -365,6 +365,25 @@
       text-transform:uppercase; color:rgba(var(--ink-rgb),.68); position:relative; z-index:1;
     }
 
+    /* TESTIMONIALS */
+    .testimonials-section { padding:7rem 3rem; background:var(--paper); }
+    .testimonials-inner { max-width:1100px; margin:0 auto; }
+    .testimonial-track {
+      display:flex; gap:1.5rem; overflow-x:auto; scroll-snap-type:x mandatory;
+      padding:2rem 0 .5rem; margin-top:.5rem; -webkit-overflow-scrolling:touch;
+    }
+    .testimonial-track::-webkit-scrollbar { height:5px; }
+    .testimonial-track::-webkit-scrollbar-thumb { background:rgba(var(--ink-rgb),.22); border-radius:99px; }
+    .testimonial-card {
+      scroll-snap-align:start; flex:0 0 min(340px,85%);
+      background:var(--paper-dark); border:1px solid var(--border);
+      padding:2rem 1.8rem;
+    }
+    .tc-stars { font-size:.85rem; letter-spacing:.18em; color:rgba(var(--ink-rgb),.75); margin-bottom:1rem; }
+    .tc-text { font-size:.94rem; line-height:1.7; color:var(--ink); margin-bottom:1.4rem; }
+    .tc-name { font-family:'Barlow Condensed',sans-serif; font-size:.76rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:rgba(var(--ink-rgb),.65); }
+    .testimonial-card.placeholder-card { text-align:center; display:flex; align-items:center; justify-content:center; }
+    .testimonial-card.placeholder-card .tc-text { font-style:italic; color:rgba(var(--ink-rgb),.72); margin-bottom:0; }
 
     /* VISIT */
     .visit { padding:7rem 3rem; background:var(--paper); }
@@ -415,7 +434,7 @@
       .nav-links { display:none; }
       .about-grid, .visit-grid { grid-template-columns:1fr; gap:3rem; }
       .about-visual { height:300px; }
-      .about, .menu-section, .visit, .quote-band, .insta-section { padding:5rem 1.5rem; }
+      .about, .menu-section, .visit, .quote-band, .testimonials-section, .insta-section { padding:5rem 1.5rem; }
       .menu-top { flex-direction:column; align-items:flex-start; gap:1.5rem; }
       .map-box { height:280px; }
       footer { flex-direction:column; gap:1.1rem; text-align:center; }
@@ -599,6 +618,28 @@
   <p class="q-text">"A backstreet in Perth CBD, where coffee meets community."</p>
   <p class="q-attr">The Parallel &nbsp;·&nbsp; 143 Barrack St, Perth WA</p>
 </div>
+
+<!-- TESTIMONIALS
+     Placeholder until real Google reviews are supplied (hand-picked by Gizem, not pulled
+     automatically). To add a real review, replace the placeholder-card with one card per
+     review, e.g.:
+       <div class="testimonial-card">
+         <div class="tc-stars">★★★★★</div>
+         <p class="tc-text">"Quoted review text goes here."</p>
+         <div class="tc-name">— Reviewer Name, Google</div>
+       </div>
+     The track scrolls horizontally (swipe on mobile) once there's more than one card. -->
+<section class="testimonials-section reveal" id="reviews">
+  <div class="testimonials-inner">
+    <span class="eyebrow">What People Say</span>
+    <h2 class="section-heading">FROM OUR REGULARS</h2>
+    <div class="testimonial-track">
+      <div class="testimonial-card placeholder-card">
+        <p class="tc-text">We're just getting started — real reviews from our customers will show up here soon.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- VISIT -->
 <section class="visit reveal" id="visit">
