@@ -263,6 +263,8 @@
     .pillar:last-child { border-right:none; }
     .p-num { font-family:'Anton',sans-serif; font-size:2.8rem; color:var(--ink); line-height:1; margin-bottom:.2rem; }
     .p-lbl { font-family:'Barlow Condensed',sans-serif; font-size:.72rem; letter-spacing:.2em; text-transform:uppercase; color:var(--muted); }
+    a.pillar { text-decoration:none; display:block; transition:opacity .2s; }
+    a.pillar:hover { opacity:.7; }
     .about-visual { position:relative; height:500px; }
     .av-main { position:absolute; top:0; left:0; width:84%; height:88%; background:var(--paper-mid); overflow:hidden; }
     .av-main img { width:100%; height:100%; object-fit:contain; opacity:1; filter:none; }
@@ -465,8 +467,7 @@
 <!-- HERO -->
 <section class="hero" id="home">
   <img src="images/logo.webp" alt="The Parallel" class="hero-logo" width="1200" height="359" />
-  <span class="hero-badge">Soft Opening</span>
-  <p class="hero-opening-line">We've just opened our doors — come say hi and be part of it.</p>
+  <p class="hero-opening-line">Tucked away on a quiet corner of the CBD, made for slow mornings and good company — come find your seat.</p>
   <p class="hero-tagline">Coffee &nbsp;·&nbsp; Community &nbsp;·&nbsp; Connection</p>
   <div class="hero-btns">
     <a href="https://theparallelonline.square.site" target="_blank" rel="noopener" class="btn-primary">Order Online</a>
@@ -507,7 +508,7 @@
       <div class="pillars">
         <div class="pillar"><div class="p-num" id="toastiesCount">6</div><div class="p-lbl">Toasties</div></div>
         <div class="pillar"><div class="p-num" id="drinksCount">16</div><div class="p-lbl">Drinks</div></div>
-        <div class="pillar"><div class="p-num" id="communityCount">1</div><div class="p-lbl">Community</div></div>
+        <a class="pillar" href="https://www.instagram.com/theparallelinperth" target="_blank" rel="noopener"><div class="p-num" id="communityCount">1</div><div class="p-lbl">Community</div></a>
       </div>
     </div>
     <div class="about-visual">
@@ -782,7 +783,7 @@
   // Instagram does not allow reading the live count without Meta Graph API
   // credentials. For now this is updated by hand; once credentials are set up,
   // replace this constant with a real fetch.
-  const INSTAGRAM_FOLLOWERS = 2127;
+  const INSTAGRAM_FOLLOWERS = 2812;
   const communityEl = document.getElementById('communityCount');
   if (communityEl) communityEl.textContent = INSTAGRAM_FOLLOWERS;
 
