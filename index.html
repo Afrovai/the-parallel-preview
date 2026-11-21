@@ -268,13 +268,11 @@
     .about-visual { position:relative; height:500px; }
     .av-main { position:absolute; top:0; left:0; width:84%; height:88%; background:var(--paper-mid); overflow:hidden; }
     .av-main img, .av-main video { width:100%; height:100%; object-fit:contain; opacity:1; filter:none; display:block; }
-    /* The toastie + coffee scene: drawn on the section's own colour, edges fading into the page. */
+    /* The toastie + coffee scene, drawn on the section's own colour. */
     .av-main.av-video { background:none; width:100%; height:100%; }
     .av-video ~ .av-box { display:none; }
     .av-main.av-video video {
       width:auto; max-width:100%; aspect-ratio:720/786; margin:0 auto; object-fit:cover; pointer-events:none;
-      -webkit-mask-image:radial-gradient(closest-side, #000 72%, transparent 100%);
-              mask-image:radial-gradient(closest-side, #000 72%, transparent 100%);
     }
     .av-box {
       position:absolute; bottom:0; left:0; width:46%; height:37%;
