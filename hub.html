@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>The Parallel — Welcome</title>
+  <meta name="description" content="The Parallel — Coffee & Toast Bar, Perth CBD. Loyalty card, menu, wifi and more." />
+  <meta name="robots" content="noindex" />
+  <meta name="theme-color" content="#560618" />
+  <link rel="manifest" href="hub.webmanifest" />
+  <link rel="icon" type="image/png" href="images/icon-192.png" />
+  <link rel="apple-touch-icon" href="images/icon-192.png" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-title" content="The Parallel" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:wght@400;600;700&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --paper: #560618; --paper-dark: #3D0410; --paper-mid: #720C22; --paper-mid-rgb: 114,12,34;
+      --ink: #FFFFFF; --ink-rgb: 255,255,255; --muted: rgba(var(--ink-rgb),.82);
+    }
+    body {
+      min-height: 100vh;
+      background: var(--paper);
+      background-image: radial-gradient(ellipse 80% 50% at 50% 0%, rgba(var(--paper-mid-rgb),.7) 0%, transparent 70%);
+      color: var(--ink);
+      font-family: 'Barlow', sans-serif; font-weight: 300;
+      display: flex; justify-content: center;
+      padding: calc(2.5rem + env(safe-area-inset-top)) 1.25rem calc(2.5rem + env(safe-area-inset-bottom));
+    }
+    .wrap { width: 100%; max-width: 420px; text-align: center; }
+    .logo { width: min(260px, 70vw); height: auto; display: block; margin: 0 auto 1.2rem; }
+    .hero {
+      position: relative; border-radius: 24px; overflow: hidden; margin-bottom: 1.4rem;
+      background: var(--paper-dark); border: 1px solid rgba(var(--ink-rgb),.14);
+      aspect-ratio: 4 / 3; display: flex; align-items: center; justify-content: center;
+    }
+    .hero img { width: 70%; height: auto; animation: walk 3.2s ease-in-out infinite; }
+    .hero.photo img { width: 100%; height: 100%; object-fit: cover; animation: none; }
+    @keyframes walk { 0%,100% { transform: translateX(-4%) rotate(-1deg); } 50% { transform: translateX(4%) rotate(1deg); } }
+    @media (prefers-reduced-motion: reduce) { .hero img { animation: none; } }
+    .tagline {
+      font-family: 'Barlow Condensed', sans-serif; font-size: .85rem; letter-spacing: .28em; text-transform: uppercase;
+      color: rgba(var(--ink-rgb),.7); margin-bottom: 1.8rem;
+    }
+    .links { display: flex; flex-direction: column; gap: .85rem; }
+    .btn {
+      display: flex; align-items: center; justify-content: center; gap: .65rem; width: 100%;
+      min-height: 56px; padding: 1rem 1.4rem;
+      border: 1px solid rgba(var(--ink-rgb),.4); border-radius: 999px;
+      color: var(--ink); background: rgba(var(--ink-rgb),.04); text-decoration: none; cursor: pointer;
+      font-family: 'Barlow Condensed', sans-serif; font-size: 1.05rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
+      transition: background .2s, transform .15s;
+    }
+    .btn:hover { background: rgba(var(--ink-rgb),.1); transform: translateY(-1px); }
+    .btn:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
+    .btn.primary { background: var(--ink); color: var(--paper); border-color: var(--ink); font-size: 1.15rem; min-height: 64px; }
+    .btn svg { width: 22px; height: 22px; flex: none; }
+    .panel {
+      display: none; text-align: left; margin-top: -.25rem; padding: 1.1rem 1.2rem; border-radius: 18px;
+      background: var(--paper-dark); border: 1px solid rgba(var(--ink-rgb),.16); font-size: 1rem; line-height: 1.5;
+    }
+    .panel.open { display: block; }
+    .panel dt { font-family: 'Barlow Condensed', sans-serif; text-transform: uppercase; letter-spacing: .14em; font-size: .8rem; color: rgba(var(--ink-rgb),.65); }
+    .panel dd { font-family: 'Barlow Condensed', sans-serif; font-size: 1.4rem; font-weight: 600; margin-bottom: .6rem; word-break: break-all; }
+    .panel .small { font-size: .9rem; color: var(--muted); }
+    .copy { margin-top: .4rem; min-height: 48px; font-size: .95rem; }
+    footer {
+      margin-top: 2.6rem; font-family: 'Barlow Condensed', sans-serif; font-size: .8rem; letter-spacing: .1em; text-transform: uppercase;
+      color: rgba(var(--ink-rgb),.55); line-height: 1.8;
+    }
+    footer a { color: inherit; }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <img class="logo" src="images/logo.webp" alt="The Parallel" width="1200" height="360" />
+    <!-- Hero: the mascot until Gizem sends a photo of the café (then add class "photo" and swap the image). -->
+    <div class="hero">
+      <img src="images/mascot-crop.webp" alt="" width="540" height="500" />
+    </div>
+    <p class="tagline">Coffee &nbsp;·&nbsp; Toast &nbsp;·&nbsp; Perth CBD</p>
+
+    <nav class="links" aria-label="The Parallel">
+      <a class="btn primary" id="rewards" href="#">
+        <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 4c-1 1.5 1 2.5 0 4M16 4c-1 1.5 1 2.5 0 4M21 4c-1 1.5 1 2.5 0 4"/><path d="M6 11h18v8a7 7 0 0 1-7 7h-4a7 7 0 0 1-7-7z"/><path d="M24 13h1.5a3.5 3.5 0 0 1 0 7H24"/></svg>
+        Start earning rewards
+      </a>
+      <div class="panel" id="rewards-panel" role="status">
+        <p>Our loyalty card is almost ready: <strong>collect 8 stamps and get a free coffee</strong>. Ask our team at the counter.</p>
+      </div>
+
+      <a class="btn" href="index.html#menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h12a4 4 0 0 1 4 4v12H8a4 4 0 0 1-4-4z"/><path d="M8 9h8M8 13h8M8 17h5"/></svg>
+        View menu
+      </a>
+
+      <button class="btn" type="button" id="wifi" aria-expanded="false" aria-controls="wifi-panel">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8.5a15 15 0 0 1 20 0M5 12a10 10 0 0 1 14 0M8.5 15.5a5 5 0 0 1 7 0"/><circle cx="12" cy="19" r="1.2" fill="currentColor"/></svg>
+        Connect to wifi
+      </button>
+      <div class="panel" id="wifi-panel"></div>
+
+      <a class="btn" id="suggest" href="#">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 9h8M8 12h5"/></svg>
+        Suggestion box
+      </a>
+
+      <a class="btn" href="https://www.instagram.com/theparallelinperth" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+        @theparallelinperth
+      </a>
+    </nav>
+
+    <footer>
+      143 Barrack St, Perth WA 6000<br />
+      <a href="index.html">theparallel.com.au</a> &nbsp;·&nbsp; <a href="privacy.html">Privacy</a>
+    </footer>
+  </main>
+
+  <script>
+    // ---- Settings: fill these in, nothing else needs to change. ----
+    // The loyalty card link (Afrovai), e.g. 'https://<app>/#/card/<code>'. Empty: shows "almost ready".
+    const CARD_URL = '';
+    // The café's wifi. Empty name: "ask our team".
+    const WIFI_NAME = '';
+    const WIFI_PASSWORD = '';
+    // Where suggestions go. Empty: they go to Instagram messages.
+    const SUGGEST_EMAIL = '';
+    // -----------------------------------------------------------------
+
+    const rewards = document.getElementById('rewards');
+    if (CARD_URL) rewards.href = CARD_URL;
+    else rewards.addEventListener('click', (e) => {
+      e.preventDefault();
+      document.getElementById('rewards-panel').classList.toggle('open');
+    });
+
+    const wifi = document.getElementById('wifi');
+    const wifiPanel = document.getElementById('wifi-panel');
+    const esc = (s) => s.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+    wifiPanel.innerHTML = WIFI_NAME
+      ? `<dl><dt>Network</dt><dd>${esc(WIFI_NAME)}</dd>${WIFI_PASSWORD ? `<dt>Password</dt><dd>${esc(WIFI_PASSWORD)}</dd>` : ''}</dl>
+         ${WIFI_PASSWORD ? '<button class="btn copy" type="button" id="copy-wifi">Copy password</button>' : ''}
+         <p class="small">Open your phone's wifi settings and choose this network.</p>`
+      : '<p>Ask our team at the counter for the wifi details.</p>';
+    wifi.addEventListener('click', () => {
+      const open = wifiPanel.classList.toggle('open');
+      wifi.setAttribute('aria-expanded', String(open));
+    });
+    const copyBtn = document.getElementById('copy-wifi');
+    if (copyBtn) copyBtn.addEventListener('click', async () => {
+      try { await navigator.clipboard.writeText(WIFI_PASSWORD); copyBtn.textContent = 'Copied!'; }
+      catch { copyBtn.textContent = 'Select and copy it above'; }
+    });
+
+    const suggest = document.getElementById('suggest');
+    suggest.href = SUGGEST_EMAIL
+      ? 'mailto:' + SUGGEST_EMAIL + '?subject=' + encodeURIComponent('Suggestion for The Parallel')
+      : 'https://ig.me/m/theparallelinperth';
+    if (!SUGGEST_EMAIL) { suggest.target = '_blank'; suggest.rel = 'noopener'; }
+  </script>
+</body>
+</html>
