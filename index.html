@@ -847,5 +847,24 @@
   // (add-ons like Vanilla Cold Foam are not counted as their own drink).
 
 </script>
+<!-- Opened from the hub (the counter QR): a floating button back to it. The app on the home screen has no back button. -->
+<a id="backToHub" href="hub.html" hidden>&larr; Back</a>
+<style>
+  #backToHub {
+    position:fixed; left:50%; bottom:calc(1.1rem + env(safe-area-inset-bottom)); transform:translateX(-50%); z-index:200;
+    display:inline-flex; align-items:center; gap:.4rem; min-height:48px; padding:.8rem 1.5rem; border-radius:999px;
+    background:#fff; color:#560618; text-decoration:none; box-shadow:0 8px 24px rgba(0,0,0,.35);
+    font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:1rem; letter-spacing:.12em; text-transform:uppercase;
+  }
+  #backToHub[hidden] { display:none; }
+</style>
+<script>
+  (() => {
+    try {
+      if (new URLSearchParams(location.search).get("from") === "hub") sessionStorage.setItem("fromHub", "1");
+      if (sessionStorage.getItem("fromHub") === "1") document.getElementById("backToHub").hidden = false;
+    } catch (e) {}
+  })();
+</script>
 </body>
 </html>
