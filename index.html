@@ -268,9 +268,14 @@
     .about-visual { position:relative; height:500px; }
     .av-main { position:absolute; top:0; left:0; width:84%; height:88%; background:var(--paper-mid); overflow:hidden; }
     .av-main img, .av-main video { width:100%; height:100%; object-fit:contain; opacity:1; filter:none; display:block; }
-    /* The promo video is vertical (9:16): a tall frame on the right, the label box stays bottom-left. */
-    .av-main.av-video { left:auto; right:0; width:auto; height:100%; aspect-ratio:9/16; border:1px solid var(--border); }
-    .av-main.av-video video { object-fit:cover; }
+    /* The toastie + coffee scene: drawn on the section's own colour, edges fading into the page. */
+    .av-main.av-video { background:none; width:100%; height:100%; }
+    .av-video ~ .av-box { display:none; }
+    .av-main.av-video video {
+      width:auto; max-width:100%; aspect-ratio:720/786; margin:0 auto; object-fit:cover; pointer-events:none;
+      -webkit-mask-image:radial-gradient(closest-side, #000 58%, transparent 100%);
+              mask-image:radial-gradient(closest-side, #000 58%, transparent 100%);
+    }
     .av-box {
       position:absolute; bottom:0; left:0; width:46%; height:37%;
       background:var(--paper); border:1px solid var(--border);
@@ -439,7 +444,7 @@
       nav { padding:1rem 1.5rem; }
       .nav-links { display:none; }
       .about-grid, .visit-grid { grid-template-columns:1fr; gap:3rem; }
-      .about-visual { height:480px; }
+      .about-visual { height:380px; }
       .about, .menu-section, .visit, .quote-band, .testimonials-section, .insta-section { padding:5rem 1.5rem; }
       .menu-top { flex-direction:column; align-items:flex-start; gap:1.5rem; }
       .map-box { height:280px; }
@@ -516,7 +521,7 @@
     </div>
     <div class="about-visual">
       <div class="av-main av-video" id="mascotBox">
-        <video id="promoVideo" src="images/promo-4x-cheese-coffee.mp4" poster="images/promo-4x-cheese-coffee-poster.webp" autoplay muted loop playsinline preload="metadata" width="720" height="1280" aria-label="4x Cheese Toasty and a coffee for $15 at The Parallel"></video>              </div>
+        <video id="promoVideo" src="images/toastie-coffee.mp4" poster="images/toastie-coffee-poster.webp" autoplay muted loop playsinline disablepictureinpicture disableremoteplayback preload="auto" width="720" height="786" aria-hidden="true"></video>              </div>
       <div class="av-box">
         <div class="av-box-title">COFFEE<br/>&amp; TOAST<br/>BAR</div>
         <div class="av-box-sub">Perth CBD</div>
@@ -808,6 +813,17 @@
       }
     });
   });
+
+  // The toastie video: muted, so phones let it start by itself; start it again whenever it comes into view.
+  (() => {
+    const v = document.getElementById("promoVideo");
+    if (!v) return;
+    v.muted = true;
+    const play = () => { const p = v.play(); if (p) p.catch(() => {}); };
+    play();
+    new IntersectionObserver((es) => es.forEach((e) => (e.isIntersecting ? play() : v.pause())), { threshold: 0.2 }).observe(v);
+    document.addEventListener("touchstart", play, { once: true, passive: true });
+  })();
 
   // Scroll reveal
   const io = new IntersectionObserver(entries => {
