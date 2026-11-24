@@ -40,8 +40,8 @@
     },
     "geo": {
       "@type": "GeoCoordinates",
-      "latitude": -31.9460125,
-      "longitude": 115.9364608
+      "latitude": -31.9526,
+      "longitude": 115.8610
     },
     "openingHoursSpecification": [
       {
@@ -58,6 +58,8 @@
       }
     ],
     "servesCuisine": "Coffee, Toasties",
+      "hasMenu": "https://theparallel.com.au/#menu",
+      "acceptsReservations": false,
     "priceRange": "$$",
     "sameAs": [
       "https://www.instagram.com/theparallelinperth",
@@ -142,6 +144,8 @@
         rgba(var(--ink-rgb),.018) 59px, rgba(var(--ink-rgb),.018) 60px
       );
     }
+    .hero-h1 { margin: 0; font-size: inherit; line-height: 0; }
+    .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
     .hero-logo {
       width:min(560px,82vw); height:auto;
       position:relative; z-index:1;
@@ -472,7 +476,7 @@
 
 <!-- HERO -->
 <section class="hero" id="home">
-  <img src="images/logo.webp" alt="The Parallel" class="hero-logo" width="1200" height="359" />
+  <h1 class="hero-h1"><img src="images/logo.webp" alt="The Parallel" class="hero-logo" width="1200" height="359" /><span class="sr-only"> — Coffee &amp; Toast Bar in Perth CBD</span></h1>
   <p class="hero-opening-line">Tucked away on a quiet corner of the CBD, made for slow mornings and good company — come find your seat.</p>
   <p class="hero-tagline">Coffee &nbsp;·&nbsp; Community &nbsp;·&nbsp; Connection</p>
   <div class="hero-btns">
@@ -780,6 +784,7 @@
     <a href="#visit">Visit</a>
     <a href="https://www.instagram.com/theparallelinperth" target="_blank">Instagram</a>
     <a href="https://maps.google.com/?q=143+Barrack+St+Perth+WA+6000" target="_blank">Directions</a>
+    <a href="links.html">Links</a>
   </div>
   <p class="f-copy">© 2026 The Parallel · Perth CBD, WA</p>
 </footer>
