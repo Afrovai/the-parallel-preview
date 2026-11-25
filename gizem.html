@@ -37,6 +37,8 @@
     .links { display: grid; gap: 0.7rem; }
     .link { display: flex; align-items: center; gap: 0.8rem; min-height: 56px; padding: 0.8rem 1.2rem; border-radius: 16px; border: 1px solid rgba(255,255,255,0.3); color: #fff; text-decoration: none; text-align: left; font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: 1.05rem; letter-spacing: 0.06em; text-transform: uppercase; background: rgba(255,255,255,0.04); }
     .link svg { width: 22px; height: 22px; flex: none; }
+    .link.loyalty { background: #F6EEE3; color: #560618; border-color: #F6EEE3; }
+    .link.loyalty small { color: #8a3b4a; }
     .link small { display: block; font-family: 'Barlow', sans-serif; font-weight: 400; text-transform: none; letter-spacing: 0; font-size: 0.85rem; color: rgba(255,255,255,0.7); }
     footer { margin-top: 2rem; font-family: 'Barlow Condensed', sans-serif; font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.5); line-height: 1.8; }
     footer a { color: inherit; }
@@ -69,6 +71,11 @@
     </div>
 
     <nav class="links" aria-label="The Parallel">
+      <!-- The loyalty card (Regulr). Change only this address when Regulr moves to its final domain. -->
+      <a class="link loyalty" href="https://regulr-lime.vercel.app/?v=the-parallel" target="_blank" rel="noopener">
+        <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4c-1 1.5 1 2.5 0 4M16 4c-1 1.5 1 2.5 0 4M21 4c-1 1.5 1 2.5 0 4"/><path d="M6 11h18v8a7 7 0 0 1-7 7h-4a7 7 0 0 1-7-7z"/><path d="M24 13h1.5a3.5 3.5 0 0 1 0 7H24"/></svg>
+        <span>Get our loyalty card<small>Collect stamps, get a free coffee or toastie</small></span>
+      </a>
       <a class="link" href="https://theparallelonline.square.site" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14l-1 12H6z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
         <span>Order online<small>Coffee and toasties, ready to pick up</small></span>
