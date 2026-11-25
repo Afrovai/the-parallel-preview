@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Gizem Ozkan — The Parallel</title>
+  <meta name="description" content="Gizem Ozkan, owner of The Parallel, coffee & toast bar at 143 Barrack St, Perth CBD." />
+  <meta name="robots" content="noindex" />
+  <meta name="theme-color" content="#560618" />
+  <link rel="icon" type="image/png" href="images/icon-192.png" />
+  <link rel="apple-touch-icon" href="images/icon-192.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:wght@400;600;700&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      min-height: 100vh; background: #560618;
+      background-image: radial-gradient(ellipse 80% 50% at 50% 0%, rgba(114, 12, 34, 0.75) 0%, transparent 70%);
+      color: #fff; font-family: 'Barlow', sans-serif; font-weight: 400;
+      display: flex; justify-content: center; padding: calc(2.2rem + env(safe-area-inset-top)) 1.25rem calc(2.5rem + env(safe-area-inset-bottom));
+    }
+    .wrap { width: 100%; max-width: 420px; text-align: center; }
+    .logo { width: min(220px, 60vw); margin: 0 auto 1.4rem; display: block; }
+    .avatar { width: 104px; height: 104px; border-radius: 50%; margin: 0 auto 1rem; background: #3D0410; border: 3px solid rgba(255,255,255,0.85); display: grid; place-items: center; overflow: hidden; }
+    .avatar img { width: 82%; }
+    h1 { font-family: 'Anton', sans-serif; font-weight: 400; font-size: 2.6rem; letter-spacing: 0.02em; line-height: 1; }
+    .role { margin-top: 0.5rem; font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: 1rem; letter-spacing: 0.24em; text-transform: uppercase; color: rgba(255,255,255,0.75); }
+    .save {
+      display: flex; align-items: center; justify-content: center; gap: 0.6rem; width: 100%; min-height: 58px; margin: 1.6rem 0 0.9rem;
+      border: none; border-radius: 999px; background: #fff; color: #560618; cursor: pointer;
+      font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.15rem; letter-spacing: 0.1em; text-transform: uppercase;
+    }
+    .row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.6rem; margin-bottom: 1.4rem; }
+    .round { display: grid; justify-items: center; gap: 0.35rem; padding: 0.8rem 0.2rem; border-radius: 18px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.18); color: #fff; text-decoration: none; font-family: 'Barlow Condensed', sans-serif; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; font-size: 0.85rem; }
+    .round svg { width: 24px; height: 24px; }
+    .links { display: grid; gap: 0.7rem; }
+    .link { display: flex; align-items: center; gap: 0.8rem; min-height: 56px; padding: 0.8rem 1.2rem; border-radius: 16px; border: 1px solid rgba(255,255,255,0.3); color: #fff; text-decoration: none; text-align: left; font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: 1.05rem; letter-spacing: 0.06em; text-transform: uppercase; background: rgba(255,255,255,0.04); }
+    .link svg { width: 22px; height: 22px; flex: none; }
+    .link small { display: block; font-family: 'Barlow', sans-serif; font-weight: 400; text-transform: none; letter-spacing: 0; font-size: 0.85rem; color: rgba(255,255,255,0.7); }
+    footer { margin-top: 2rem; font-family: 'Barlow Condensed', sans-serif; font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.5); line-height: 1.8; }
+    footer a { color: inherit; }
+    .done { margin: -0.4rem 0 1rem; font-size: 0.95rem; color: #bde5c8; min-height: 1.2em; }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <img class="logo" src="images/logo.webp" alt="The Parallel" />
+    <div class="avatar"><img src="images/mascot-crop.webp" alt="" /></div>
+    <h1 id="name">GIZEM</h1>
+    <p class="role">Owner · The Parallel</p>
+
+    <button class="save" id="save" type="button">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/><path d="M19 8v6M22 11h-6"/></svg>
+      Save my contact
+    </button>
+    <p class="done" id="done" role="status"></p>
+
+    <div class="row">
+      <a class="round" id="call" href="#">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>Call
+      </a>
+      <a class="round" id="whatsapp" href="#">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 0 1-13.4 7.9L3 21l1.2-4.4A9 9 0 1 1 21 12z"/><path d="M9 9.5c.5 2 2.5 4 4.5 4.5l1.2-1.2 2 .8-.4 1.6c-3.5.3-7.9-4.1-7.6-7.6l1.6-.4.8 2z"/></svg>WhatsApp
+      </a>
+      <a class="round" id="email" href="#">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>Email
+      </a>
+    </div>
+
+    <nav class="links" aria-label="The Parallel">
+      <a class="link" href="https://theparallelonline.square.site" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14l-1 12H6z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+        <span>Order online<small>Coffee and toasties, ready to pick up</small></span>
+      </a>
+      <a class="link" href="index.html#menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h11a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3z"/><path d="M9 9h6M9 13h6M9 17h3"/></svg>
+        <span>See the menu<small>theparallel.com.au</small></span>
+      </a>
+      <a class="link" href="https://maps.google.com/?q=143+Barrack+St+Perth+WA+6000" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        <span>Visit us<small>143 Barrack St, Perth · Mon–Fri 7–3, Sat 8–2</small></span>
+      </a>
+      <a class="link" href="https://www.instagram.com/theparallelinperth" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+        <span>Instagram<small>@theparallelinperth</small></span>
+      </a>
+    </nav>
+
+    <footer>The Parallel · Coffee &amp; Toast Bar · Perth CBD<br /><a href="index.html">theparallel.com.au</a></footer>
+  </main>
+
+  <script>
+    // ---- Gizem's details: fill these in (empty = the button hides). ----
+    const CONTACT = {
+      firstName: 'Gizem',
+      lastName: 'Ozkan',
+      phone: '+61 416 234 609',
+      email: 'theparallelhouse@gmail.com',
+      title: 'Owner',
+      company: 'The Parallel',
+      website: 'https://theparallel.com.au',
+      address: '143 Barrack St;Perth;WA;6000;Australia',
+      instagram: 'https://www.instagram.com/theparallelinperth',
+    }
+    // ---------------------------------------------------------------------
+
+    const full = [CONTACT.firstName, CONTACT.lastName].filter(Boolean).join(' ')
+    document.getElementById('name').textContent = full.toUpperCase()
+    document.title = `${full} — The Parallel`
+    const digits = CONTACT.phone.replace(/[^\d+]/g, '')
+    const set = (id, href) => {
+      const a = document.getElementById(id)
+      if (href) a.href = href
+      else a.style.display = 'none'
+    }
+    set('call', digits && `tel:${digits}`)
+    set('whatsapp', digits && `https://wa.me/${digits.replace('+', '')}`)
+    set('email', CONTACT.email && `mailto:${CONTACT.email}`)
+    if (!digits && !CONTACT.email) document.querySelector('.row').style.display = 'none'
+
+    // "Save my contact": a vCard the phone opens in Contacts.
+    document.getElementById('save').addEventListener('click', () => {
+      const lines = [
+        'BEGIN:VCARD', 'VERSION:3.0',
+        `N:${CONTACT.lastName};${CONTACT.firstName};;;`, `FN:${full}`,
+        `ORG:${CONTACT.company}`, `TITLE:${CONTACT.title}`,
+        digits && `TEL;TYPE=CELL:${digits}`,
+        CONTACT.email && `EMAIL;TYPE=WORK:${CONTACT.email}`,
+        `ADR;TYPE=WORK:;;${CONTACT.address}`,
+        `URL:${CONTACT.website}`, `X-SOCIALPROFILE;TYPE=instagram:${CONTACT.instagram}`,
+        'END:VCARD',
+      ].filter(Boolean)
+      const blob = new Blob([lines.join('\r\n')], { type: 'text/vcard' })
+      const a = document.createElement('a')
+      a.href = URL.createObjectURL(blob)
+      a.download = `${full.replace(/\s+/g, '-')}.vcf`
+      a.click()
+      document.getElementById('done').textContent = 'Opening your contacts…'
+      setTimeout(() => URL.revokeObjectURL(a.href), 4000)
+    })
+  </script>
+</body>
+</html>
