@@ -1,0 +1,292 @@
+<!doctype html>
+<!--
+  The Parallel — Scroll Test (PROTOTYPE ONLY, do not publish).
+  Rebuilt on 26 Nov 2026 from Nicolás's description of the claude.ai artifact "The Parallel — Scroll Test"
+  (the original artifact could not be opened from Claude Code). Inspired by the scroll effect of a reel,
+  without copying its brand or design.
+  Scrolling builds a toastie layer by layer (bread, cheese, ham, tomato, bread), the press comes down,
+  it browns with grill marks, the cheese drips and a coffee with "TP" slides in. Then Coffee / Toasties /
+  Sweets / Cakes and the address. One file: HTML + CSS + JS, SVG drawn in code, no external images.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex" />
+<title>The Parallel — Scroll Test</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Instrument+Serif:ital@1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root { --wine: #560618; --wine-2: #6e0c22; --white: #fff; --cream: #F6EEE3; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--wine); color: var(--white); font-family: 'Inter', system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+  .anton { font-family: 'Anton', sans-serif; text-transform: uppercase; letter-spacing: 0.01em; line-height: 0.95; }
+  .serif { font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; }
+
+  /* ---------- Top bar ---------- */
+  header { position: fixed; inset: 0 0 auto 0; z-index: 10; display: flex; justify-content: space-between; align-items: center; padding: 18px 24px; mix-blend-mode: normal; }
+  header .brand { font-family: 'Anton', sans-serif; font-size: 22px; letter-spacing: 0.04em; }
+  header .brand small { display: block; font-size: 11px; letter-spacing: 0.3em; opacity: 0.7; }
+  header a { color: var(--white); text-decoration: none; font-size: 13px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; border: 1.5px solid rgba(255,255,255,0.6); padding: 9px 16px; border-radius: 999px; }
+
+  /* ---------- Scroll scene ---------- */
+  .scene { height: 700vh; position: relative; }
+  .stick { position: sticky; top: 0; height: 100vh; overflow: hidden; display: grid; grid-template-columns: 1fr 1.1fr; align-items: center; gap: 2vw; padding: 0 6vw;
+           background: radial-gradient(ellipse 70% 60% at 62% 55%, #7a1029 0%, var(--wine) 60%, #3f0412 100%); }
+  .copy { position: relative; height: 60vh; }
+  .step { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; opacity: 0; transform: translateY(24px); transition: opacity .45s ease, transform .45s ease; }
+  .step.on { opacity: 1; transform: none; }
+  .step .kick { font-size: 13px; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; opacity: 0.7; margin-bottom: 14px; }
+  .step h1, .step h2 { font-size: clamp(52px, 8vw, 128px); }
+  .step h1 .serif, .step h2 .serif { display: block; text-transform: none; font-size: 0.62em; letter-spacing: 0; margin-top: 6px; color: #ffd7c2; }
+  .step p { margin-top: 18px; max-width: 30ch; font-size: 17px; line-height: 1.5; opacity: 0.85; }
+  .art { width: 100%; max-width: 640px; justify-self: center; }
+  .art svg { width: 100%; height: auto; overflow: visible; }
+  .bar { position: absolute; left: 6vw; right: 6vw; bottom: 28px; height: 3px; background: rgba(255,255,255,0.15); border-radius: 3px; }
+  .bar i { display: block; height: 100%; width: 0; background: var(--white); border-radius: 3px; }
+  .hint { position: absolute; left: 50%; bottom: 46px; transform: translateX(-50%); font-size: 12px; letter-spacing: 0.3em; text-transform: uppercase; opacity: 0.6; transition: opacity .3s; }
+  .steam path { animation: steam 2.4s ease-in-out infinite; }
+  .steam path:nth-child(2) { animation-delay: .5s; } .steam path:nth-child(3) { animation-delay: 1s; }
+  @keyframes steam { 0% { opacity: 0; transform: translateY(8px); } 40% { opacity: .8; } 100% { opacity: 0; transform: translateY(-16px); } }
+
+  /* ---------- Menu ---------- */
+  .menu { background: var(--white); color: var(--wine); padding: 110px 6vw 90px; }
+  .menu > h2 { font-size: clamp(54px, 9vw, 140px); }
+  .menu > h2 .serif { text-transform: none; font-size: 0.55em; display: block; color: #8a3b4a; }
+  .cats { margin-top: 56px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+  .cat { border: 2px solid var(--wine); border-radius: 22px; padding: 26px 22px 24px; min-height: 260px; display: flex; flex-direction: column; justify-content: space-between; transition: background .25s, color .25s; }
+  .cat:hover { background: var(--wine); color: var(--white); }
+  .cat .n { font-size: 13px; font-weight: 600; letter-spacing: 0.2em; }
+  .cat h3 { font-size: 46px; margin-top: 30px; }
+  .cat p { font-size: 15px; line-height: 1.5; margin-top: 10px; }
+  .cat .serif { font-size: 22px; }
+
+  /* ---------- Visit ---------- */
+  .visit { padding: 100px 6vw 60px; display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: end; }
+  .visit h2 { font-size: clamp(54px, 8vw, 120px); }
+  .visit h2 .serif { display: block; text-transform: none; font-size: 0.55em; color: #ffd7c2; }
+  .visit dl { display: grid; gap: 18px; font-size: 17px; }
+  .visit dt { font-size: 12px; font-weight: 600; letter-spacing: 0.25em; text-transform: uppercase; opacity: 0.65; margin-bottom: 4px; }
+  .visit a.cta { display: inline-block; margin-top: 8px; background: var(--white); color: var(--wine); text-decoration: none; font-weight: 600; padding: 14px 22px; border-radius: 999px; }
+  footer { padding: 30px 6vw 40px; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; opacity: 0.6; border-top: 1px solid rgba(255,255,255,0.15); }
+
+  @media (max-width: 820px) {
+    .stick { grid-template-columns: 1fr; grid-template-rows: auto 1fr; padding: 80px 6vw 70px; align-content: center; }
+    .copy { height: 26vh; }
+    .art { max-width: 100%; margin-top: -4vh; }
+    .step h1, .step h2 { font-size: clamp(44px, 13vw, 80px); }
+    .step p { font-size: 15px; margin-top: 10px; }
+    .cats { grid-template-columns: 1fr 1fr; }
+    .cat { min-height: 200px; } .cat h3 { font-size: 36px; }
+    .visit { grid-template-columns: 1fr; }
+  }
+  @media (prefers-reduced-motion: reduce) { .step { transition: none; } .steam path { animation: none; } }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">THE PARALLEL<small>COFFEE &amp; TOAST BAR</small></div>
+  <a href="#visit">Find us</a>
+</header>
+
+<section class="scene" id="scene">
+  <div class="stick">
+    <div class="copy">
+      <div class="step on" data-from="0"><div class="kick">143 Barrack St · Perth</div><h1 class="anton">Built<span class="serif">one layer at a time.</span></h1><p>Scroll to make a toastie.</p></div>
+      <div class="step" data-from="0.06"><div class="kick">01 · The base</div><h2 class="anton">Bread<span class="serif">thick, golden, fresh.</span></h2></div>
+      <div class="step" data-from="0.17"><div class="kick">02 · The melt</div><h2 class="anton">Cheese<span class="serif">a lot of it.</span></h2></div>
+      <div class="step" data-from="0.28"><div class="kick">03 · The good stuff</div><h2 class="anton">Ham<span class="serif">sliced thin.</span></h2></div>
+      <div class="step" data-from="0.38"><div class="kick">04 · The fresh bit</div><h2 class="anton">Tomato<span class="serif">for balance.</span></h2></div>
+      <div class="step" data-from="0.48"><div class="kick">05 · Close it up</div><h2 class="anton">Bread<span class="serif">again, obviously.</span></h2></div>
+      <div class="step" data-from="0.58"><div class="kick">06 · The press</div><h2 class="anton">Press<span class="serif">hot plates, no mercy.</span></h2></div>
+      <div class="step" data-from="0.68"><div class="kick">07 · The crunch</div><h2 class="anton">Golden<span class="serif">with grill marks.</span></h2></div>
+      <div class="step" data-from="0.79"><div class="kick">08 · The pull</div><h2 class="anton">Melt<span class="serif">let it drip.</span></h2></div>
+      <div class="step" data-from="0.88"><div class="kick">09 · The partner</div><h2 class="anton">+ Coffee<span class="serif">never one without the other.</span></h2></div>
+    </div>
+
+    <div class="art">
+      <svg viewBox="0 0 640 600" aria-label="A toastie being made, and a coffee">
+        <defs>
+          <linearGradient id="g-bread" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F3C987"/><stop offset="1" stop-color="#D9A15A"/></linearGradient>
+          <linearGradient id="g-toast" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#C77A2E"/><stop offset="1" stop-color="#8F4E17"/></linearGradient>
+          <linearGradient id="g-press" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3a3a3e"/><stop offset="1" stop-color="#18181b"/></linearGradient>
+          <linearGradient id="g-cup" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#e9e2da"/></linearGradient>
+          <clipPath id="clip-top"><path d="M118 352 Q118 286 200 280 L440 280 Q522 286 522 352 Z"/></clipPath>
+        </defs>
+
+        <!-- board and shadow -->
+        <ellipse cx="320" cy="500" rx="250" ry="26" fill="#000" opacity="0.28"/>
+        <rect x="80" y="468" width="480" height="26" rx="13" fill="#3a0310" opacity="0.9"/>
+
+        <!-- 1 bottom bread -->
+        <g id="l-bread1">
+          <rect x="112" y="414" width="416" height="56" rx="24" fill="url(#g-bread)" stroke="#B9813D" stroke-width="3"/>
+          <rect x="128" y="424" width="384" height="10" rx="5" fill="#fff" opacity="0.25"/>
+          <rect id="b1-toast" x="112" y="414" width="416" height="56" rx="24" fill="url(#g-toast)" opacity="0"/>
+        </g>
+
+        <!-- 2 cheese -->
+        <g id="l-cheese">
+          <path d="M100 398 H540 V416 H520 q-8 10 -16 0 H380 q-10 12 -20 0 H240 q-9 10 -18 0 H120 q-10 10 -20 0 Z" fill="#F7C948" stroke="#E0A92A" stroke-width="2"/>
+        </g>
+
+        <!-- 3 ham -->
+        <g id="l-ham">
+          <path d="M116 380 q20 -10 40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t-4 18 H120 Z" fill="#EE9A9A" stroke="#C86A6A" stroke-width="2"/>
+        </g>
+
+        <!-- 4 tomato -->
+        <g id="l-tomato">
+          <ellipse cx="190" cy="370" rx="62" ry="12" fill="#D9412E" stroke="#A82A1C" stroke-width="2"/>
+          <ellipse cx="320" cy="368" rx="64" ry="12" fill="#E24A35" stroke="#A82A1C" stroke-width="2"/>
+          <ellipse cx="450" cy="370" rx="62" ry="12" fill="#D9412E" stroke="#A82A1C" stroke-width="2"/>
+          <g fill="#F7D35B" opacity="0.9"><circle cx="175" cy="369" r="3"/><circle cx="205" cy="371" r="3"/><circle cx="305" cy="367" r="3"/><circle cx="335" cy="369" r="3"/><circle cx="435" cy="369" r="3"/><circle cx="465" cy="371" r="3"/></g>
+        </g>
+
+        <!-- 8 cheese drips (behind top bread) -->
+        <g id="l-drips" fill="#F7C948" stroke="#E0A92A" stroke-width="2">
+          <path id="d1" d="M150 412 h22 v24 a11 11 0 0 1 -22 0 Z"/>
+          <path id="d2" d="M300 414 h18 v38 a9 9 0 0 1 -18 0 Z"/>
+          <path id="d3" d="M440 412 h24 v18 a12 12 0 0 1 -24 0 Z"/>
+          <path id="d4" d="M514 404 h16 v30 a8 8 0 0 1 -16 0 Z"/>
+        </g>
+
+        <!-- 5 top bread -->
+        <g id="l-bread2">
+          <path d="M118 352 Q118 286 200 280 L440 280 Q522 286 522 352 Z" fill="url(#g-bread)" stroke="#B9813D" stroke-width="3"/>
+          <g clip-path="url(#clip-top)">
+            <rect id="b2-toast" x="100" y="270" width="440" height="90" fill="url(#g-toast)" opacity="0"/>
+            <g id="marks" stroke="#5a2a0c" stroke-width="9" stroke-linecap="round" opacity="0">
+              <path d="M170 350 L230 280"/><path d="M240 350 L300 280"/><path d="M310 350 L370 280"/><path d="M380 350 L440 280"/><path d="M450 350 L510 280"/>
+            </g>
+          </g>
+          <path d="M150 300 Q200 288 260 290" stroke="#fff" stroke-width="6" stroke-linecap="round" fill="none" opacity="0.3"/>
+        </g>
+
+        <!-- 6 press -->
+        <g id="l-press">
+          <rect x="300" y="-120" width="40" height="70" fill="#2a2a2e"/>
+          <rect x="200" y="-150" width="240" height="34" rx="17" fill="#1f1f22"/>
+          <rect x="90" y="-56" width="460" height="64" rx="18" fill="url(#g-press)"/>
+          <g stroke="#55555b" stroke-width="5" stroke-linecap="round"><path d="M130 4 L180 -50"/><path d="M200 4 L250 -50"/><path d="M270 4 L320 -50"/><path d="M340 4 L390 -50"/><path d="M410 4 L460 -50"/><path d="M480 4 L530 -50"/></g>
+          <circle id="led" cx="520" cy="-24" r="7" fill="#ff5a3c" opacity="0"/>
+        </g>
+
+        <!-- heat lines while pressing -->
+        <g id="heat" stroke="#ffd7c2" stroke-width="4" stroke-linecap="round" fill="none" opacity="0">
+          <path d="M96 300 q-14 -14 0 -28 q14 -14 0 -28"/><path d="M544 300 q14 -14 0 -28 q-14 -14 0 -28"/>
+        </g>
+
+        <!-- 9 coffee -->
+        <g id="l-coffee">
+          <g class="steam" stroke="#fff" stroke-width="4" stroke-linecap="round" fill="none" opacity="0.7">
+            <path d="M560 300 q-10 -14 0 -28 q10 -14 0 -28"/><path d="M584 296 q-10 -14 0 -28 q10 -14 0 -28"/><path d="M608 300 q-10 -14 0 -28 q10 -14 0 -28"/>
+          </g>
+          <path d="M538 320 H630 L618 462 Q616 474 604 474 H564 Q552 474 550 462 Z" fill="url(#g-cup)" stroke="#d8cfc4" stroke-width="2"/>
+          <rect x="532" y="310" width="104" height="16" rx="8" fill="#fff" stroke="#d8cfc4" stroke-width="2"/>
+          <rect x="546" y="370" width="78" height="54" fill="#560618"/>
+          <text x="585" y="410" text-anchor="middle" font-family="Anton, sans-serif" font-size="30" fill="#fff" letter-spacing="1">TP</text>
+        </g>
+      </svg>
+    </div>
+
+    <div class="bar"><i id="bar"></i></div>
+    <div class="hint" id="hint">Scroll ↓</div>
+  </div>
+</section>
+
+<section class="menu" id="menu">
+  <h2 class="anton">The menu<span class="serif">small bar, big flavour.</span></h2>
+  <div class="cats">
+    <div class="cat"><span class="n">01</span><div><h3 class="anton">Coffee</h3><p><span class="serif">Espresso, white, black.</span><br/>Made properly, every time.</p></div></div>
+    <div class="cat"><span class="n">02</span><div><h3 class="anton">Toasties</h3><p><span class="serif">Pressed to order.</span><br/>Crunchy outside, melted inside.</p></div></div>
+    <div class="cat"><span class="n">03</span><div><h3 class="anton">Sweets</h3><p><span class="serif">For the sweet tooth.</span><br/>Something small with your coffee.</p></div></div>
+    <div class="cat"><span class="n">04</span><div><h3 class="anton">Cakes</h3><p><span class="serif">A slice, why not.</span><br/>Ask what's on the counter today.</p></div></div>
+  </div>
+</section>
+
+<section class="visit" id="visit">
+  <h2 class="anton">Come by<span class="serif">we'll have the press on.</span></h2>
+  <dl>
+    <div><dt>Address</dt><dd>143 Barrack St, Perth WA 6000</dd></div>
+    <div><dt>Hours</dt><dd>Mon–Fri 7–3 · Sat 8–2</dd></div>
+    <div><a class="cta" href="https://maps.google.com/?q=143+Barrack+St+Perth+WA+6000" target="_blank" rel="noopener">Get directions</a></div>
+  </dl>
+</section>
+<footer>The Parallel · Coffee &amp; Toast Bar · Perth CBD — prototype</footer>
+
+<script>
+  // Scroll progress 0..1 across the scene drives every layer.
+  const $ = (id) => document.getElementById(id)
+  const scene = $('scene'), steps = [...document.querySelectorAll('.step')]
+  // ?p=0.5 freezes the animation at that point (for screenshots).
+  const FORCED = new URLSearchParams(location.search).has('p') ? +new URLSearchParams(location.search).get('p') : null
+  const clamp = (v) => Math.max(0, Math.min(1, v))
+  const seg = (p, a, b) => clamp((p - a) / (b - a))          // 0..1 inside [a, b]
+  const ease = (t) => 1 - Math.pow(1 - t, 3)                 // ease-out
+  const drop = (el, t, from = -420) => {                      // falls in from above
+    const e = ease(t)
+    el.setAttribute('transform', `translate(0 ${(1 - e) * from})`)
+    el.style.opacity = t > 0 ? Math.min(1, t * 3) : 0
+  }
+
+  function render() {
+    const r = scene.getBoundingClientRect()
+    const p = FORCED != null ? FORCED : clamp(-r.top / (r.height - innerHeight))
+
+    drop($('l-bread1'), seg(p, 0.04, 0.14))
+    drop($('l-cheese'), seg(p, 0.15, 0.25))
+    drop($('l-ham'), seg(p, 0.26, 0.36))
+    drop($('l-tomato'), seg(p, 0.36, 0.46))
+    drop($('l-bread2'), seg(p, 0.46, 0.56))
+
+    // Press: down 0.57–0.64, holds, back up 0.76–0.82. Resting position puts its plate on the bread.
+    const down = ease(seg(p, 0.57, 0.64)), up = ease(seg(p, 0.76, 0.82))
+    // squash the sandwich a little while pressed; the press follows it down
+    const squash = (down - up) * 0.06
+    const py = -260 + (down - up) * 528 + squash * 300
+    $('l-press').setAttribute('transform', `translate(0 ${py})`)
+    $('l-press').style.opacity = p > 0.55 ? 1 - up : 0   // fades out as it lifts
+    ;['l-bread2', 'l-tomato', 'l-ham', 'l-cheese'].forEach((id) => {
+      if (p > 0.56) $(id).setAttribute('transform', `translate(0 ${squash * 300})`)
+    })
+    const pressing = seg(p, 0.64, 0.66) * (1 - seg(p, 0.76, 0.78))
+    $('led').style.opacity = pressing
+    $('heat').style.opacity = pressing * (0.5 + 0.5 * Math.sin(p * 400))
+
+    // Browning and grill marks build while pressed.
+    const brown = seg(p, 0.65, 0.76)
+    $('b2-toast').style.opacity = brown * 0.85
+    $('b1-toast').style.opacity = brown * 0.7
+    $('marks').style.opacity = seg(p, 0.7, 0.78) * 0.9
+
+    // Cheese drips once the press lifts.
+    ;['d1', 'd2', 'd3', 'd4'].forEach((id, i) => {
+      const t = ease(seg(p, 0.79 + i * 0.015, 0.87 + i * 0.015))
+      const el = $(id)
+      el.style.transformBox = 'fill-box'; el.style.transformOrigin = '50% 0'
+      el.style.transform = `scaleY(${t})`; el.style.opacity = t > 0 ? 1 : 0
+    })
+
+    // Coffee slides in from the right.
+    const c = ease(seg(p, 0.88, 0.97))
+    $('l-coffee').setAttribute('transform', `translate(${(1 - c) * 320} 0)`)
+    $('l-coffee').style.opacity = c
+
+    // Copy and progress bar.
+    let cur = 0
+    steps.forEach((s, i) => { if (p >= +s.dataset.from) cur = i })
+    steps.forEach((s, i) => s.classList.toggle('on', i === cur))
+    $('bar').style.width = (p * 100).toFixed(1) + '%'
+    $('hint').style.opacity = p < 0.02 ? 0.6 : 0
+  }
+
+  let ticking = false
+  addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(() => { render(); ticking = false }) } }, { passive: true })
+  addEventListener('resize', render)
+  render()
+</script>
+</body>
+</html>
